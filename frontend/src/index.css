@@ -1,0 +1,335 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Wanda Gordon — luxury editorial design system
+ * Hierarchy: Ivory + Charcoal → Sage → Plum.
+ * Fixed editorial rhythm, no global dark/light toggle.
+ * Contrast: text on sage = charcoal only; text on plum/charcoal =
+ * ivory/white. Sage is never small text on ivory (fill/line only).
+ */
+:root {
+  --sage: #c6d8af;
+  --sage-soft: #dde5d2;
+  --plum: #685369;
+  --plum-deep: #54445a;
+  --plum-deeper: #43364a;
+  --plum-light: #7a6480;
+  --charcoal: #111114;
+  --ivory: #f7f5ef;
+  --sand: #dbd8b3;
+  --peach: #fcc8b2;
+  --warm-white: #fcf7f8;
+  --obsidian: #0b0b0d;
+  --navy: #16141b;
+  --ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* App defaults (light editorial) */
+  --bg: var(--ivory);
+  --fg: var(--charcoal);
+  --card: #ffffff;
+  --border: rgba(17, 17, 20, 0.12);
+  --ring: var(--plum);
+}
+
+/* Footer protection: the footer renders ONLY from these scoped
+   values, snapshotted before the sage/plum migration, so global
+   token changes can never alter it. */
+.site-footer {
+  --footer-bg: #0b0b0d;
+  --footer-ivory: #f7f4ee;
+  --footer-accent: #c9a24d;
+  --footer-rule: rgba(201, 162, 77, 0.7);
+  --footer-line: rgba(201, 162, 77, 0.3);
+  --footer-deco: rgba(201, 162, 77, 0.6);
+  --footer-hairline: rgba(247, 244, 238, 0.1);
+  --footer-m75: rgba(247, 244, 238, 0.75);
+  --footer-m65: rgba(247, 244, 238, 0.65);
+  --footer-m50: rgba(247, 244, 238, 0.5);
+  --footer-dim: rgba(247, 244, 238, 0.25);
+}
+
+/* Kept for compat: admin area still uses `dark:` variants
+   with its own toggle. Public site uses fixed editorial sections. */
+.dark {
+  --bg: var(--obsidian);
+  --fg: #f7f5ef;
+  --card: #14161a;
+  --border: rgba(198, 216, 175, 0.16);
+  --ring: var(--sage);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-sans;
+  background: var(--bg);
+  color: var(--fg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(198, 216, 175, 0.55);
+  color: #111114;
+}
+
+@layer components {
+  /* ---- Buttons: sage fill, charcoal text (AA ~12:1) ---- */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-[3px] px-6 py-3 text-sm font-semibold tracking-wide transition;
+    background: var(--sage);
+    color: #111114;
+    min-height: 44px;
+  }
+  .btn-primary:hover {
+    background: #b3c89e;
+    color: #111114;
+  }
+  .btn-primary:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-[3px] px-6 py-3 text-sm font-semibold tracking-wide transition;
+    background: transparent;
+    border: 1px solid rgba(104, 83, 105, 0.55);
+    color: inherit;
+    min-height: 44px;
+  }
+  .btn-secondary:hover {
+    border-color: var(--sage);
+    color: inherit;
+  }
+
+  /* ---- Type ---- */
+  .section-pad {
+    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28;
+  }
+
+  .container-page {
+    @apply mx-auto max-w-6xl;
+  }
+
+  .container-editorial {
+    @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .heading-display {
+    font-family: 'Playfair Display', 'DM Serif Display', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  .headline-editorial {
+    font-family: 'Playfair Display', 'DM Serif Display', Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 4.75rem);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  /* Eyebrow: plum on light (AA ~6.4:1), sage on dark (AA ~12:1).
+     Sage is never body text on ivory. */
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--plum);
+  }
+  .section-dark .eyebrow,
+  .section-navy .eyebrow,
+  .section-plum-deep .eyebrow {
+    color: var(--sage);
+  }
+
+  .body-editorial {
+    line-height: 1.75;
+    max-width: 62ch;
+  }
+
+  /* ---- Surfaces: hairlines, barely-rounded ---- */
+  .card-surface {
+    @apply border bg-white;
+    border-radius: 3px;
+    border-color: rgba(17, 17, 20, 0.12);
+    box-shadow: none;
+    transition: transform 0.5s var(--ease-luxury), box-shadow 0.5s var(--ease-luxury),
+      border-color 0.3s ease, background-color 0.4s ease;
+  }
+  .section-dark .card-surface {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(198, 216, 175, 0.22);
+    color: #f7f5ef;
+  }
+
+  .card-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 24px 48px -24px rgba(67, 54, 74, 0.5);
+  }
+
+  /* Editorial rules — sage accent lines */
+  .gold-rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(198, 216, 175, 0.8), transparent);
+  }
+
+  .gold-rule-left {
+    height: 1px;
+    width: 3.5rem;
+    background: var(--sage);
+  }
+
+  .hairline {
+    border: 1px solid rgba(17, 17, 20, 0.12);
+  }
+  .section-dark .hairline {
+    border-color: rgba(198, 216, 175, 0.22);
+  }
+
+  .ghost-numeral {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(104, 83, 105, 0.3);
+    user-select: none;
+  }
+  .section-dark .ghost-numeral,
+  .section-plum-deep .ghost-numeral {
+    -webkit-text-stroke: 1px rgba(198, 216, 175, 0.28);
+  }
+
+  /* Grain stays whisper-subtle on the lighter plum surfaces */
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  }
+
+  .section-dark {
+    background: var(--plum);
+    color: #f7f5ef;
+    --ring: var(--sage);
+  }
+  .section-navy {
+    background: var(--plum-deep);
+    color: #f7f5ef;
+    --ring: var(--sage);
+  }
+  .section-plum-deep {
+    background: var(--plum-deep);
+    color: #f7f5ef;
+    --ring: var(--sage);
+  }
+  .section-soft {
+    background: var(--sage-soft);
+    color: var(--charcoal);
+  }
+  /* Warm light sections — charcoal/plum-deep text only (AA 12+/6+).
+     Peach never fills here; accents only. */
+  .section-sand {
+    background: var(--sand);
+    color: var(--charcoal);
+  }
+  .section-warm {
+    background: var(--warm-white);
+    color: var(--charcoal);
+  }
+  .section-light {
+    background: var(--ivory);
+    color: var(--charcoal);
+  }
+
+  /* Animated editorial underline for text links */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: left calc(100% - 1px);
+    transition: background-size 0.4s var(--ease-luxury);
+    padding-bottom: 2px;
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 text-sm outline-none transition bg-white;
+    border-radius: 3px;
+    border: 1px solid rgba(17, 17, 20, 0.18);
+    min-height: 44px;
+  }
+  .input-field:focus {
+    border-color: var(--plum);
+    box-shadow: 0 0 0 2px rgba(104, 83, 105, 0.22);
+  }
+  .section-dark .input-field,
+  .section-navy .input-field {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(198, 216, 175, 0.28);
+    color: #f7f5ef;
+  }
+  .section-dark .input-field:focus,
+  .section-navy .input-field:focus {
+    border-color: var(--sage);
+    box-shadow: 0 0 0 2px rgba(198, 216, 175, 0.25);
+  }
+
+  /* Legacy glass — neutralized to editorial hairline. */
+  .glass {
+    @apply border bg-white/80;
+    border-radius: 3px;
+    border-color: rgba(17, 17, 20, 0.12);
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+}
+
+/* Visible focus ring — plum on light, sage on dark sections */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Keep content sharp over fixed backgrounds */
+.relative.z-10 {
+  isolation: isolate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar — muted sage */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(104, 83, 105, 0.45);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(104, 83, 105, 0.7);
+}

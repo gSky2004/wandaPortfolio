@@ -1,0 +1,16 @@
+{
+  "name": "Wanda Gordon — Financial Educator",
+  "short_name": "Wanda Gordon",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#43364A",
+  "theme_color": "#43364A",
+  "description": "Wanda Gordon — Financial Educator, Financial Coach, Speaker.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
