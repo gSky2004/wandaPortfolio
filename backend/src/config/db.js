@@ -11,6 +11,7 @@ const config = {
 
 const pool = new Pool({
   ...config,
+  ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : undefined,
   connectionTimeoutMillis: Number(process.env.DB_CONNECT_TIMEOUT_MS) || 5000,
   idleTimeoutMillis: 30000,
   statement_timeout: Number(process.env.DB_STATEMENT_TIMEOUT_MS) || 15000,
