@@ -228,7 +228,7 @@ export default function TestimonialsSection() {
           </div>
 
           {/* indicators */}
-          <div className="mt-6 flex justify-center gap-2.5">
+          <div className="mt-6 flex flex-wrap justify-center gap-2.5">
             {testimonials.map((t, i) => (
               <button
                 key={t.id}

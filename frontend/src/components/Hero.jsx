@@ -87,11 +87,11 @@ export default function Hero() {
             <motion.div
               animate={reduce ? {} : { y: [0, -4, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-              className="flex w-fit items-center gap-3 rounded-[3px] border border-charcoal/10 bg-sand px-4 py-2.5"
+              className="flex w-fit max-w-full flex-wrap items-center gap-x-3 gap-y-2 rounded-[3px] border border-charcoal/10 bg-sand px-4 py-2.5"
             >
-              <span aria-hidden className="h-px w-8 bg-sage" />
-              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-peach" />
-              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-charcoal">
+              <span aria-hidden className="h-px w-8 shrink-0 bg-sage" />
+              <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-peach" />
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-charcoal sm:tracking-[0.22em]">
                 Most Influential Woman of the Year · 2026
               </p>
             </motion.div>

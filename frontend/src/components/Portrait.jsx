@@ -19,6 +19,8 @@ export default function Portrait({
   withParallax = false,
   tone = 'dark',
   src: srcOverride,
+  srcSet: srcSetOverride,
+  sizes: sizesOverride,
   objectPosition: objectPositionOverride,
   priority = false,
 }) {
@@ -70,6 +72,8 @@ export default function Portrait({
             height={intrinsicH}
             style={{ objectPosition }}
             className="h-full w-full object-cover"
+            {...(srcSetOverride ? { srcSet: srcSetOverride } : {})}
+            {...(sizesOverride ? { sizes: sizesOverride } : {})}
           />
         ) : (
           <div className="flex h-full w-full flex-col items-center justify-center gap-3 border border-charcoal/10 bg-white p-8 text-center">

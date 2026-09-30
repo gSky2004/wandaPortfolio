@@ -216,7 +216,7 @@ export default function Navbar() {
             </div>
             <div className="gold-rule mx-4 sm:mx-6 opacity-60" />
             <motion.nav
-              className="flex h-[calc(100%-4rem)] flex-col justify-center gap-1 px-8"
+              className="flex h-[calc(100%-4rem)] flex-col overflow-y-auto px-8 py-6"
               aria-label="Mobile"
               onClick={(e) => e.stopPropagation()}
               initial="hidden"
@@ -227,6 +227,7 @@ export default function Navbar() {
                   : { hidden: {}, show: { transition: { staggerChildren: 0.07, delayChildren: 0.1 } } }
               }
             >
+              <div className="my-auto flex flex-col gap-1">
               {navLinks.map((s, i) => (
                 <motion.div
                   key={s.id}
@@ -282,6 +283,7 @@ export default function Navbar() {
                 )}
                 <p className="eyebrow mt-6">{siteConfig.tagline}</p>
               </motion.div>
+              </div>
             </motion.nav>
           </motion.div>
         )}

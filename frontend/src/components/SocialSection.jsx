@@ -60,7 +60,7 @@ export default function SocialSection() {
                 <span
                   aria-hidden
                   className={`mt-4 inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-[0.18em] transition ${
-                    s.live ? 'text-sage opacity-0 group-hover:opacity-100' : 'text-ivory/60'
+                    s.live ? 'text-sage opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 group-active:opacity-100 max-sm:opacity-100' : 'text-ivory/60'
                   }`}
                 >
                   {s.live ? (

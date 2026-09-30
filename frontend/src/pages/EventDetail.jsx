@@ -44,7 +44,7 @@ export default function EventDetail() {
     >
       {/* Hero */}
       <div className="section-warm relative overflow-hidden">
-        <div className="container-editorial relative pb-14 pt-28 md:pt-36">
+        <div className="container-editorial relative pb-14 pt-20 md:pt-36">
           <Link
             to="/#events"
             className="inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-charcoal/60 transition-colors hover:text-plum"

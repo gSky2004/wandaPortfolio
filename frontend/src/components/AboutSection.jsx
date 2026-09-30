@@ -52,6 +52,8 @@ export default function AboutSection() {
               aspect="aspect-[4/5]"
               tone="light"
               src="/wanda-about.jpg"
+              srcSet="/wanda-about-640.jpg 640w, /wanda-about.jpg 1400w"
+              sizes="(max-width: 1024px) 90vw, 600px"
               objectPosition="center 15%"
               caption="Wanda Gordon — Certified Financial Educator"
             />

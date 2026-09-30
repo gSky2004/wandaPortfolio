@@ -64,6 +64,19 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Contain decorative bleed (offset frames, blobs, ghost type) so
+   small screens never scroll sideways. `clip` preserves sticky/fixed. */
+html,
+body {
+  overflow-x: hidden;
+}
+@supports (overflow: clip) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+}
+
 body {
   @apply font-sans;
   background: var(--bg);

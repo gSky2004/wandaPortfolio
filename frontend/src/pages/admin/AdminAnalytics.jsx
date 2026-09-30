@@ -118,7 +118,7 @@ export default function AdminAnalytics() {
               <BarChart data={pages} layout="vertical" margin={{ left: 8, right: 16 }}>
                 <CartesianGrid strokeDasharray="3 3" opacity={0.2} horizontal={false} />
                 <XAxis type="number" allowDecimals={false} tick={{ fontSize: 11 }} />
-                <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={150} />
+                <YAxis type="category" dataKey="name" tick={{ fontSize: 10 }} width={130} />
                 <Tooltip />
                 <Bar dataKey="count" fill="#0d9488" radius={[0, 6, 6, 0]} />
               </BarChart>
