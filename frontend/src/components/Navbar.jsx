@@ -103,13 +103,14 @@ export default function Navbar() {
   const top = !scrolled;
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'border-b border-sage/25 bg-plum-deep/85 backdrop-blur-md shadow-[0_12px_32px_-16px_rgba(67,54,74,0.65)]'
-          : 'border-b border-charcoal/10 bg-ivory/80 backdrop-blur-md'
-      }`}
-    >
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? 'border-b border-sage/25 bg-plum-deep/85 backdrop-blur-md shadow-[0_12px_32px_-16px_rgba(67,54,74,0.65)]'
+            : 'border-b border-charcoal/10 bg-ivory/80 backdrop-blur-md'
+        }`}
+      >
       <nav
         className={`container-editorial flex items-center justify-between transition-all duration-500 ${
           scrolled ? 'h-14 md:h-16' : 'h-16 md:h-20'
@@ -206,6 +207,7 @@ export default function Navbar() {
           </button>
         </div>
       </nav>
+    </header>
 
       <AnimatePresence>
         {open && (
@@ -307,6 +309,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
