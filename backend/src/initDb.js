@@ -5,12 +5,14 @@ require('dotenv').config();
 
 async function initDb() {
   const dbName = process.env.DB_NAME || 'portfolio_db';
+  const ssl = process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : undefined;
   const adminClient = new Client({
     host: process.env.DB_HOST || 'localhost',
     port: Number(process.env.DB_PORT) || 5432,
     user: process.env.DB_USER || 'postgres',
     password: process.env.DB_PASSWORD || 'postgres',
     database: 'postgres',
+    ssl,
   });
 
   try {
@@ -32,6 +34,7 @@ async function initDb() {
     user: process.env.DB_USER || 'postgres',
     password: process.env.DB_PASSWORD || 'postgres',
     database: dbName,
+    ssl,
   });
 
   try {
