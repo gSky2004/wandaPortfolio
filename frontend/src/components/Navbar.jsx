@@ -100,13 +100,14 @@ export default function Navbar() {
   }, [isHome, navigate]);
 
   const waLink = buildWhatsAppLink(siteConfig.whatsappNumber);
+  const top = !scrolled;
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
           ? 'border-b border-sage/25 bg-plum-deep/85 backdrop-blur-md shadow-[0_12px_32px_-16px_rgba(67,54,74,0.65)]'
-          : 'border-b border-transparent bg-plum-deeper/40 backdrop-blur-sm'
+          : 'border-b border-charcoal/10 bg-ivory/80 backdrop-blur-md'
       }`}
     >
       <nav
@@ -123,7 +124,9 @@ export default function Navbar() {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }
           }}
-          className="font-serif text-base md:text-lg font-semibold tracking-[0.22em] text-sage"
+          className={`font-serif text-base md:text-lg font-semibold tracking-[0.22em] transition-colors duration-500 ${
+            top ? 'text-plum-deep' : 'text-sage'
+          }`}
         >
           WANDA&nbsp;GORDON
         </Link>
@@ -138,7 +141,13 @@ export default function Navbar() {
                 onClick={() => goToSection(s)}
                 aria-current={active ? 'true' : undefined}
                 className={`relative py-2 text-[13px] font-semibold uppercase tracking-[0.14em] transition-colors ${
-                  active ? 'text-sage' : 'text-ivory/70 hover:text-ivory'
+                  active
+                    ? top
+                      ? 'text-plum-deep'
+                      : 'text-sage'
+                    : top
+                      ? 'text-charcoal/60 hover:text-charcoal'
+                      : 'text-ivory/70 hover:text-ivory'
                 }`}
               >
                 {s.label}
@@ -146,7 +155,7 @@ export default function Navbar() {
                   <motion.span
                     layoutId="nav-underline"
                     transition={{ duration: 0.45, ease: EASE }}
-                    className="absolute inset-x-0 -bottom-0.5 h-px bg-sage"
+                    className={`absolute inset-x-0 -bottom-0.5 h-px ${top ? 'bg-plum' : 'bg-sage'}`}
                   />
                 )}
               </button>
@@ -160,7 +169,11 @@ export default function Navbar() {
               href={waLink}
               target="_blank"
               rel="noreferrer"
-              className="group hidden sm:inline-flex min-h-[44px] items-center gap-1.5 rounded-[3px] border border-sage/60 px-5 py-2 text-[13px] font-semibold uppercase tracking-[0.14em] text-sage transition hover:bg-sage hover:text-charcoal"
+              className={`group hidden sm:inline-flex min-h-[44px] items-center gap-1.5 rounded-[3px] border px-5 py-2 text-[13px] font-semibold uppercase tracking-[0.14em] transition ${
+                top
+                  ? 'border-plum-deep/50 text-plum-deep hover:bg-plum-deep hover:text-ivory'
+                  : 'border-sage/60 text-sage hover:bg-sage hover:text-charcoal'
+              }`}
             >
               Connect
               <FiArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -170,7 +183,11 @@ export default function Navbar() {
               type="button"
               onClick={connectFallback}
               title="Go to contact"
-              className="group hidden sm:inline-flex min-h-[44px] items-center gap-1.5 rounded-[3px] border border-sage/60 px-5 py-2 text-[13px] font-semibold uppercase tracking-[0.14em] text-sage transition hover:bg-sage hover:text-charcoal"
+              className={`group hidden sm:inline-flex min-h-[44px] items-center gap-1.5 rounded-[3px] border px-5 py-2 text-[13px] font-semibold uppercase tracking-[0.14em] transition ${
+                top
+                  ? 'border-plum-deep/50 text-plum-deep hover:bg-plum-deep hover:text-ivory'
+                  : 'border-sage/60 text-sage hover:bg-sage hover:text-charcoal'
+              }`}
             >
               Connect
               <FiArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -178,7 +195,9 @@ export default function Navbar() {
           )}
           <button
             type="button"
-            className="lg:hidden rounded-[3px] p-2.5 text-ivory hover:text-sage"
+            className={`lg:hidden rounded-[3px] p-2.5 transition-colors ${
+              top ? 'text-charcoal hover:text-plum-deep' : 'text-ivory hover:text-sage'
+            }`}
             onClick={() => setOpen(true)}
             aria-label="Open menu"
             aria-expanded={open}
@@ -281,7 +300,7 @@ export default function Navbar() {
                     Connect <FiArrowUpRight />
                   </button>
                 )}
-                <p className="eyebrow mt-6">{siteConfig.tagline}</p>
+                <p className="eyebrow mt-6 !text-sage">{siteConfig.tagline}</p>
               </motion.div>
               </div>
             </motion.nav>
