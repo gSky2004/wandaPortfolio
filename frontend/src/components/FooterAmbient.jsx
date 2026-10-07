@@ -3,7 +3,7 @@ import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { footerAmbient } from '../data/siteConfig';
 
 const EASE = [0.22, 1, 0.36, 1];
-const DRIFT_COLORS = ['#C6D8AF', '#DBD8B3', '#FCC8B2', '#685369'];
+const DRIFT_COLORS = ['#C9A24B', '#EDE3C8', '#E6C87A', '#2C4E7E'];
 
 function rnd(seed) {
   const x = Math.sin(seed * 41.3 + 17.7) * 19381.7;

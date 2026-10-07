@@ -12,7 +12,7 @@ function Card({ t, active }) {
     <div
       className={`h-full border bg-white p-7 transition-all duration-500 md:p-9 ${
         active
-          ? 'border-charcoal/15 shadow-[0_24px_48px_-24px_rgba(67,54,74,0.35)]'
+          ? 'border-charcoal/15 shadow-[0_24px_48px_-24px_rgba(10,27,51,0.35)]'
           : 'border-charcoal/10'
       }`}
     >
@@ -134,7 +134,7 @@ export default function TestimonialsSection() {
           onFocus={() => setPaused(true)}
           onBlur={() => setPaused(false)}
           className="relative mx-auto mt-12 max-w-3xl focus-visible:outline-2 focus-visible:outline-offset-4"
-          style={{ ['--tw-ring-color']: '#685369' }}
+          style={{ ['--tw-ring-color']: '#142C4F' }}
         >
           <div className="flex items-center gap-3 md:gap-5">
             <button

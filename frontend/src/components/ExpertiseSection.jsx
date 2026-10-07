@@ -11,52 +11,52 @@ const EASE = [0.22, 1, 0.36, 1];
    light surfaces → charcoal text, dark surfaces → ivory text. */
 const SURFACES = {
   plum: {
-    bg: '#685369', fg: '#F7F5EF', sub: 'rgba(247,245,239,.75)',
+    bg: '#142C4F', fg: '#F7F5EF', sub: 'rgba(247,245,239,.75)',
     line: 'rgba(247,245,239,.35)', ghost: 'rgba(247,245,239,.13)',
-    ring: '#C6D8AF', spot: 'rgba(255,255,255,.10)',
+    ring: '#C9A24B', spot: 'rgba(255,255,255,.10)',
   },
   citrine: {
     bg: '#E4DA72', fg: '#111114', sub: 'rgba(17,17,20,.72)',
     line: 'rgba(17,17,20,.32)', ghost: 'rgba(17,17,20,.10)',
-    ring: '#685369', spot: 'rgba(255,255,255,.35)',
+    ring: '#142C4F', spot: 'rgba(255,255,255,.35)',
   },
   amber: {
     bg: '#FFB900', fg: '#111114', sub: 'rgba(17,17,20,.72)',
     line: 'rgba(17,17,20,.3)', ghost: 'rgba(17,17,20,.10)',
-    ring: '#685369', spot: 'rgba(255,255,255,.3)',
+    ring: '#142C4F', spot: 'rgba(255,255,255,.3)',
   },
   charcoal: {
     bg: '#111114', fg: '#F7F5EF', sub: 'rgba(247,245,239,.75)',
-    line: 'rgba(198,216,175,.4)', ghost: 'rgba(198,216,175,.10)',
-    ring: '#C6D8AF', spot: 'rgba(198,216,175,.10)',
+    line: 'rgba(201,162,77,.45)', ghost: 'rgba(201,162,77,.12)',
+    ring: '#C9A24B', spot: 'rgba(201,162,77,.12)',
   },
   crimson: {
     bg: '#D10056', fg: '#F7F5EF', sub: 'rgba(247,245,239,.8)',
     line: 'rgba(247,245,239,.4)', ghost: 'rgba(247,245,239,.14)',
-    ring: '#C6D8AF', spot: 'rgba(255,255,255,.12)',
+    ring: '#C9A24B', spot: 'rgba(255,255,255,.12)',
   },
   cream: {
     bg: '#FFF1D1', fg: '#111114', sub: 'rgba(17,17,20,.72)',
-    line: 'rgba(17,17,20,.28)', ghost: 'rgba(104,83,105,.12)',
-    ring: '#685369', spot: 'rgba(255,255,255,.4)',
+    line: 'rgba(17,17,20,.28)', ghost: 'rgba(20,44,79,.12)',
+    ring: '#142C4F', spot: 'rgba(255,255,255,.4)',
   },
   /* legacy keys (kept so older cached data never breaks) */
   sage: {
     bg: '#E4DA72', fg: '#111114', sub: 'rgba(17,17,20,.72)',
     line: 'rgba(17,17,20,.32)', ghost: 'rgba(17,17,20,.10)',
-    ring: '#685369', spot: 'rgba(255,255,255,.35)',
+    ring: '#142C4F', spot: 'rgba(255,255,255,.35)',
   },
   'soft-sage': {
     bg: '#FFB900', fg: '#111114', sub: 'rgba(17,17,20,.72)',
     line: 'rgba(17,17,20,.3)', ghost: 'rgba(17,17,20,.10)',
-    ring: '#685369', spot: 'rgba(255,255,255,.3)',
+    ring: '#142C4F', spot: 'rgba(255,255,255,.3)',
   },
 };
 
-/* Section wash shifts subtly inside the plum family. */
+/* Section wash shifts subtly inside the navy family. */
 const SECTION_WASH = {
-  base: '#54445A',
-  plum: '#5D4C60',
+  base: '#0F2340',
+  plum: '#142C4F',
   citrine: '#57512E',
   amber: '#5E4E1E',
   charcoal: '#17171B',
@@ -333,7 +333,7 @@ export default function ExpertiseSection() {
                   aria-controls={`service-acc-${s.id}`}
                   onClick={() => select(isActive ? '' : s.id)}
                   className="flex min-h-[60px] w-full items-center gap-4 py-4 text-left focus-visible:outline-2 focus-visible:outline-offset-[-2px]"
-                  style={{ ['--tw-ring-color']: '#C6D8AF' }}
+                  style={{ ['--tw-ring-color']: '#C9A24B' }}
                 >
                   <span className="font-serif text-base text-sage/80">{s.numeral}</span>
                   <span className="min-w-0 flex-1 font-serif text-lg font-semibold text-ivory">

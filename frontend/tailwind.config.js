@@ -5,30 +5,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Wanda Gordon editorial system (primary)
-        // Hierarchy: Ivory + Charcoal → Sage → Plum
+        // Wanda Gordon financial system (primary)
+        // Hierarchy: Ivory + Charcoal → Gold → Navy
+        // Token names (sage/plum) are kept so all public sections
+        // update without touching every component — values below are
+        // navy + gold for a financial educator brand.
         sage: {
-          DEFAULT: '#C6D8AF',
-          soft: '#DDE5D2',
+          DEFAULT: '#C9A24B',
+          soft: '#EDE3C8',
         },
         plum: {
-          DEFAULT: '#685369',
-          deep: '#54445A',
-          deeper: '#43364A',
-          light: '#7A6480',
+          DEFAULT: '#142C4F',
+          deep: '#0F2340',
+          deeper: '#0A1B33',
+          light: '#2C4E7E',
         },
         charcoal: '#111114',
         ivory: '#F7F5EF',
-        // Warm editorial neutrals (Home + Events refinement).
-        // NOTE: CED3DC (cool gray-blue) is deliberately NOT in the
-        // palette — it fights the warm plum/sage/sand direction.
-        // A neutral divider line, if ever needed, stays a future
-        // option; do not implement one now.
-        sand: '#DBD8B3',
-        peach: '#FCC8B2',
+        // Warm financial neutrals (Home + Events refinement).
+        // Champagne-tinted sand pairs with gold accents on ivory.
+        sand: '#E2D6B8',
+        peach: '#E6C87A',
         'warm-white': '#FCF7F8',
         obsidian: '#0B0B0D',
-        navy: '#16141B',
+        navy: '#0A1B33',
         // Legacy accent — public site no longer references these;
         // .site-footer carries its own scoped copies so it stays identical.
         gold: {
@@ -88,13 +88,13 @@ export default {
       },
       backgroundImage: {
         'mesh-light':
-          'radial-gradient(at 20% 20%, rgba(51,145,255,0.18) 0px, transparent 50%), radial-gradient(at 80% 10%, rgba(13,148,136,0.14) 0px, transparent 45%), radial-gradient(at 70% 80%, rgba(51,145,255,0.1) 0px, transparent 50%), linear-gradient(180deg, #f6f7f9 0%, #eef8ff 100%)',
+          'radial-gradient(at 20% 20%, rgba(201,162,77,0.16) 0px, transparent 50%), radial-gradient(at 80% 10%, rgba(20,44,79,0.10) 0px, transparent 45%), radial-gradient(at 70% 80%, rgba(201,162,77,0.10) 0px, transparent 50%), linear-gradient(180deg, #F7F5EF 0%, #EDE3C8 100%)',
         'mesh-dark':
-          'radial-gradient(at 15% 20%, rgba(51,145,255,0.22) 0px, transparent 45%), radial-gradient(at 85% 15%, rgba(20,184,166,0.12) 0px, transparent 40%), radial-gradient(at 60% 85%, rgba(51,145,255,0.1) 0px, transparent 45%), linear-gradient(180deg, #0b1020 0%, #12182a 100%)',
+          'radial-gradient(at 15% 20%, rgba(201,162,77,0.20) 0px, transparent 45%), radial-gradient(at 85% 15%, rgba(201,162,77,0.10) 0px, transparent 40%), radial-gradient(at 60% 85%, rgba(20,44,79,0.35) 0px, transparent 45%), linear-gradient(180deg, #0A1B33 0%, #0F2340 100%)',
       },
       boxShadow: {
-        soft: '0 10px 40px -12px rgba(20, 40, 80, 0.18)',
-        glow: '0 0 0 1px rgba(51,145,255,0.15), 0 12px 40px -10px rgba(51,145,255,0.35)',
+        soft: '0 10px 40px -12px rgba(10, 27, 51, 0.28)',
+        glow: '0 0 0 1px rgba(201,162,77,0.22), 0 12px 40px -10px rgba(201,162,77,0.35)',
       },
       animation: {
         float: 'float 6s ease-in-out infinite',

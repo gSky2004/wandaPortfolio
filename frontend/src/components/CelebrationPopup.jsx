@@ -4,7 +4,7 @@ import { FiStar, FiX } from 'react-icons/fi';
 import { celebration } from '../data/achievements';
 
 const EASE = [0.22, 1, 0.36, 1];
-const FALL_COLORS = ['#C6D8AF', '#DBD8B3', '#FCC8B2', '#685369', '#FFFFFF'];
+const FALL_COLORS = ['#C9A24B', '#EDE3C8', '#E6C87A', '#142C4F', '#FFFFFF'];
 
 function rnd(seed) {
   const x = Math.sin(seed * 91.7 + 53.4) * 28963.23;
@@ -135,7 +135,7 @@ export default function CelebrationPopup() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 12, scale: 0.98 }}
               transition={{ duration: 0.5, ease: EASE }}
-              className="pointer-events-auto relative w-full max-w-md border border-charcoal/10 bg-warm-white px-8 py-9 text-center shadow-[0_32px_64px_-24px_rgba(67,54,74,0.5)]"
+              className="pointer-events-auto relative w-full max-w-md border border-charcoal/10 bg-warm-white px-8 py-9 text-center shadow-[0_32px_64px_-24px_rgba(10,27,51,0.5)]"
             >
               <button
                 type="button"

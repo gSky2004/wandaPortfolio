@@ -3,26 +3,28 @@
 @tailwind utilities;
 
 /*
- * Wanda Gordon — luxury editorial design system
- * Hierarchy: Ivory + Charcoal → Sage → Plum.
+ * Wanda Gordon — financial educator design system
+ * Hierarchy: Ivory + Charcoal → Gold → Navy.
  * Fixed editorial rhythm, no global dark/light toggle.
- * Contrast: text on sage = charcoal only; text on plum/charcoal =
- * ivory/white. Sage is never small text on ivory (fill/line only).
+ * Contrast: text on gold = charcoal only; text on navy/charcoal =
+ * ivory/white. Gold is never small text on ivory (fill/line only).
+ * NOTE: token names (sage/plum) are kept for compatibility — their
+ * values are now gold/navy.
  */
 :root {
-  --sage: #c6d8af;
-  --sage-soft: #dde5d2;
-  --plum: #685369;
-  --plum-deep: #54445a;
-  --plum-deeper: #43364a;
-  --plum-light: #7a6480;
+  --sage: #c9a24b;
+  --sage-soft: #ede3c8;
+  --plum: #142c4f;
+  --plum-deep: #0f2340;
+  --plum-deeper: #0a1b33;
+  --plum-light: #2c4e7e;
   --charcoal: #111114;
   --ivory: #f7f5ef;
-  --sand: #dbd8b3;
-  --peach: #fcc8b2;
+  --sand: #e2d6b8;
+  --peach: #e6c87a;
   --warm-white: #fcf7f8;
   --obsidian: #0b0b0d;
-  --navy: #16141b;
+  --navy: #0a1b33;
   --ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
 
   /* App defaults (light editorial) */
@@ -34,7 +36,7 @@
 }
 
 /* Footer protection: the footer renders ONLY from these scoped
-   values, snapshotted before the sage/plum migration, so global
+   values, snapshotted before the navy/gold migration, so global
    token changes can never alter it. */
 .site-footer {
   --footer-bg: #0b0b0d;
@@ -56,7 +58,7 @@
   --bg: var(--obsidian);
   --fg: #f7f5ef;
   --card: #14161a;
-  --border: rgba(198, 216, 175, 0.16);
+  --border: rgba(201, 162, 77, 0.22);
   --ring: var(--sage);
 }
 
@@ -86,12 +88,12 @@ body {
 }
 
 ::selection {
-  background: rgba(198, 216, 175, 0.55);
+  background: rgba(201, 162, 77, 0.45);
   color: #111114;
 }
 
 @layer components {
-  /* ---- Buttons: sage fill, charcoal text (AA ~12:1) ---- */
+  /* ---- Buttons: gold fill, charcoal text (AA) ---- */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 rounded-[3px] px-6 py-3 text-sm font-semibold tracking-wide transition;
     background: var(--sage);
@@ -99,8 +101,8 @@ body {
     min-height: 44px;
   }
   .btn-primary:hover {
-    background: #b3c89e;
-    color: #111114;
+    background: #a58133;
+    color: #ffffff;
   }
   .btn-primary:disabled {
     opacity: 0.55;
@@ -110,7 +112,7 @@ body {
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 rounded-[3px] px-6 py-3 text-sm font-semibold tracking-wide transition;
     background: transparent;
-    border: 1px solid rgba(104, 83, 105, 0.55);
+    border: 1px solid rgba(20, 44, 79, 0.55);
     color: inherit;
     min-height: 44px;
   }
@@ -148,8 +150,8 @@ body {
     text-wrap: balance;
   }
 
-  /* Eyebrow: plum on light (AA ~6.4:1), sage on dark (AA ~12:1).
-     Sage is never body text on ivory. */
+  /* Eyebrow: navy on light (AA), gold on dark (AA).
+     Gold is never body text on ivory. */
   .eyebrow {
     font-size: 0.72rem;
     font-weight: 700;
@@ -179,19 +181,19 @@ body {
   }
   .section-dark .card-surface {
     background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(198, 216, 175, 0.22);
+    border-color: rgba(201, 162, 77, 0.32);
     color: #f7f5ef;
   }
 
   .card-lift:hover {
     transform: translateY(-5px);
-    box-shadow: 0 24px 48px -24px rgba(67, 54, 74, 0.5);
+    box-shadow: 0 24px 48px -24px rgba(10, 27, 51, 0.55);
   }
 
-  /* Editorial rules — sage accent lines */
+  /* Editorial rules — gold accent lines */
   .gold-rule {
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(198, 216, 175, 0.8), transparent);
+    background: linear-gradient(90deg, transparent, rgba(201, 162, 77, 0.85), transparent);
   }
 
   .gold-rule-left {
@@ -204,7 +206,7 @@ body {
     border: 1px solid rgba(17, 17, 20, 0.12);
   }
   .section-dark .hairline {
-    border-color: rgba(198, 216, 175, 0.22);
+    border-color: rgba(201, 162, 77, 0.32);
   }
 
   .ghost-numeral {
@@ -212,15 +214,15 @@ body {
     font-size: clamp(4rem, 10vw, 8rem);
     line-height: 1;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(104, 83, 105, 0.3);
+    -webkit-text-stroke: 1px rgba(20, 44, 79, 0.32);
     user-select: none;
   }
   .section-dark .ghost-numeral,
   .section-plum-deep .ghost-numeral {
-    -webkit-text-stroke: 1px rgba(198, 216, 175, 0.28);
+    -webkit-text-stroke: 1px rgba(201, 162, 77, 0.35);
   }
 
-  /* Grain stays whisper-subtle on the lighter plum surfaces */
+  /* Grain stays whisper-subtle on the lighter navy surfaces */
   .grain::after {
     content: '';
     position: absolute;
@@ -249,8 +251,8 @@ body {
     background: var(--sage-soft);
     color: var(--charcoal);
   }
-  /* Warm light sections — charcoal/plum-deep text only (AA 12+/6+).
-     Peach never fills here; accents only. */
+  /* Warm light sections — charcoal/navy text only (AA 12+/8+).
+     Peach-gold never fills here; accents only. */
   .section-sand {
     background: var(--sand);
     color: var(--charcoal);
@@ -285,18 +287,18 @@ body {
   }
   .input-field:focus {
     border-color: var(--plum);
-    box-shadow: 0 0 0 2px rgba(104, 83, 105, 0.22);
+    box-shadow: 0 0 0 2px rgba(20, 44, 79, 0.22);
   }
   .section-dark .input-field,
   .section-navy .input-field {
     background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(198, 216, 175, 0.28);
+    border-color: rgba(201, 162, 77, 0.35);
     color: #f7f5ef;
   }
   .section-dark .input-field:focus,
   .section-navy .input-field:focus {
     border-color: var(--sage);
-    box-shadow: 0 0 0 2px rgba(198, 216, 175, 0.25);
+    box-shadow: 0 0 0 2px rgba(201, 162, 77, 0.3);
   }
 
   /* Legacy glass — neutralized to editorial hairline. */
@@ -309,7 +311,7 @@ body {
   }
 }
 
-/* Visible focus ring — plum on light, sage on dark sections */
+/* Visible focus ring — navy on light, gold on dark sections */
 :where(a, button, input, select, textarea, [tabindex]):focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
@@ -331,7 +333,7 @@ body {
   }
 }
 
-/* Custom scrollbar — muted sage */
+/* Custom scrollbar — muted navy */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -340,9 +342,9 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(104, 83, 105, 0.45);
+  background: rgba(20, 44, 79, 0.45);
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(104, 83, 105, 0.7);
+  background: rgba(20, 44, 79, 0.7);
 }
